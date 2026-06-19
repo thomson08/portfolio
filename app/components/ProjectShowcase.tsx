@@ -10,6 +10,8 @@ import {
   AwsMark,
   SupabaseMark,
   OpenAiMark,
+  SwiftMark,
+  AppleMark,
 } from "./ToolLogos";
 import { projects, type Project } from "../lib/content";
 
@@ -29,6 +31,14 @@ const STACK: Record<string, { el: ReactNode; label: string }> = {
   claude: {
     el: <ClaudeMark className="h-9 w-9 text-coral md:h-11 md:w-11" />,
     label: "Claude",
+  },
+  ios: {
+    el: <AppleMark className="h-9 w-auto text-ink md:h-11" />,
+    label: "iOS",
+  },
+  swift: {
+    el: <SwiftMark className="h-9 w-auto md:h-11" />,
+    label: "Swift",
   },
 };
 

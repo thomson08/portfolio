@@ -171,6 +171,7 @@ export const projects: Project[] = [
     theme: "light",
     logo: "/work/travel/icon.png",
     wordmark: "/work/travel/fulllogo.png",
+    stack: ["ios", "swift"],
     summary: [
       "An editorial travel companion — profile, interactive map, and trip journal in one.",
       "Save destinations, explore places on a live map, and record each trip day by day.",

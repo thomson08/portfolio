@@ -61,7 +61,11 @@ export default function Hero() {
         </div>
 
         <h2 className="mt-4 text-2xl font-semibold leading-tight tracking-tight">
-          Product Designer <span className="text-coral">& AI Builder</span>
+          Product Designer
+          <br />
+          Software Engineer
+          <br />
+          <span className="text-coral">& AI Builder</span>
         </h2>
         <p className="mt-2 max-w-xs text-sm leading-relaxed text-graphite">
           Designing and shipping AI-powered products, end to end.
@@ -141,6 +145,8 @@ export default function Hero() {
         >
           <h2 className="text-3xl font-semibold leading-tight tracking-tight">
             Product Designer
+            <br />
+            Software Engineer
             <br />
             <span className="text-coral">& AI Builder</span>
           </h2>
