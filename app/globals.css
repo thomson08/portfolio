@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   Thomas Ninh — Portfolio
+   Refined editorial luxe · monochrome + coral
+   ───────────────────────────────────────────── */
+
+@theme {
+  /* Palette */
+  --color-paper: #f3f2f0;
+  --color-paper-dim: #e9e8e4;
+  --color-ink: #0e0e0f;
+  --color-ink-soft: #1a1a1a;
+  --color-graphite: #7b7b7b;
+  --color-mist: #b6b5b0;
+  --color-coral: #ff5436;
+  --color-coral-deep: #e23d20;
+
+  /* Type */
+  --font-display: var(--font-hanken), "Helvetica Neue", Arial, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-feature-settings: "ss01", "cv01";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-coral);
+  color: #fff;
+}
+
+/* Section eyebrow labels ( // INTRO ) */
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-graphite);
+}
+
+/* Giant ghost background name */
+.ghost {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Coral underline-on-hover link */
+.link-coral {
+  position: relative;
+  white-space: nowrap;
+}
+.link-coral::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--color-coral);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+.link-coral:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
