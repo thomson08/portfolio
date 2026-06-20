@@ -21,10 +21,25 @@ export const metadata: Metadata = {
   description:
     "I design and ship AI-powered product experiences end to end. Selected work: Round-ing, Claire, SpotIt.",
   metadataBase: new URL("https://thomasninh.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Thomas Ninh — Product Designer & AI Builder",
-    description: "I design and ship AI-powered product experiences end to end.",
+    description:
+      "AI-powered products, designed in Figma and shipped to production end to end.",
+    url: "https://thomasninh.com",
+    siteName: "Thomas Ninh",
+    locale: "en_US",
     type: "website",
+    // og:image tags are generated automatically from app/opengraph-image.tsx
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thomas Ninh — Product Designer & AI Builder",
+    description:
+      "AI-powered products, designed in Figma and shipped to production end to end.",
+    // twitter:image tags are generated automatically from app/twitter-image.tsx
   },
 };
 
