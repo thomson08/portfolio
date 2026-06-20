@@ -56,8 +56,8 @@ export const whyAI = {
     body: "Ideas that used to need a whole team — design, frontend, backend, AI — are now buildable by one person who knows the tools deeply. That's where the new creativity lives: ambition is no longer capped by what you can execute alone.",
   },
   credential: {
-    badge: "Claude Code — Certified",
-    note: "I design in Figma — using its complementary AI tools to enhance productivity and speed — and build with Claude Code, where I've gone deep enough to be certified, not just dabble. That fluency is why idea-to-production is hours, not weeks.",
+    badge: "Anthropic Claude Courses",
+    note: "I design in Figma — using its complementary AI tools to enhance productivity and speed — and build with Claude Code, trained directly through Anthropic's official Claude courses (Claude 101, Claude Code). That fluency is why idea-to-production is hours, not weeks.",
   },
   closing: "The tools generate. The taste, the judgment, the decisions — that's still me.",
 };
