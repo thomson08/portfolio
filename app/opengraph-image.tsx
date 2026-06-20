@@ -96,25 +96,42 @@ export default async function Image() {
           position: "relative",
         }}
       >
-        {/* Coral accent rail */}
+        {/* Coral accent rails — inset from BOTH edges and mirrored so the
+            framing survives LinkedIn's center-crop of the wide card (which
+            shaves the outer ~15–20% on narrow grid layouts). Both rails sit
+            at the safe-zone boundary (≈x:120 / ≈x:1062). The right rail is
+            painted first so the portrait cut-out renders on top of it,
+            letting coral peek through the figure's transparent negative
+            space rather than striping across him. */}
         <div
           style={{
             position: "absolute",
             top: 0,
-            left: 0,
-            width: 14,
+            right: 120,
+            width: 18,
+            height: "100%",
+            background: CORAL,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 120,
+            width: 18,
             height: "100%",
             background: CORAL,
           }}
         />
 
-        {/* Text column */}
+        {/* Text column — all critical copy kept inside the center safe zone
+            (≈x:156 → x:740) so nothing important is lost to the crop. */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            padding: "72px 64px 72px 96px",
+            padding: "72px 60px 72px 156px",
             width: 760,
             height: "100%",
           }}
@@ -134,7 +151,7 @@ export default async function Image() {
             {/* Mirrors the hero: "Thomas" outlined, "Ninh" solid ink */}
             {wordmarkSrc ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={wordmarkSrc} alt="Thomas Ninh" width={600} height={115} />
+              <img src={wordmarkSrc} alt="Thomas Ninh" width={560} height={108} />
             ) : (
               <div
                 style={{
