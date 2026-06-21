@@ -179,7 +179,7 @@ function Section({ p, index }: { p: Project; index: number }) {
                         : { backgroundColor: p.accent, color: "#0e0e0f" }
                     }
                   >
-                    Visit live site ↗
+                    Visit live site ↗︎
                   </a>
                 )}
               </div>

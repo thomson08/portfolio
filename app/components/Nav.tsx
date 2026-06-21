@@ -71,7 +71,7 @@ export default function Nav({ subpage = false }: { subpage?: boolean }) {
           href={`${base}#contact`}
           className="hidden text-sm font-medium text-coral link-coral md:inline"
         >
-          Let&apos;s talk ↗
+          Let&apos;s talk ↗︎
         </a>
 
         {/* Mobile hamburger */}
@@ -128,7 +128,7 @@ export default function Nav({ subpage = false }: { subpage?: boolean }) {
           onClick={() => setOpen(false)}
           className="mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-ink px-7 py-4 text-base font-medium text-paper"
         >
-          Let&apos;s talk ↗
+          Let&apos;s talk ↗︎
         </a>
       </div>
     </>

@@ -38,7 +38,7 @@ export default function Contact() {
                 href={profile.socials[0].href}
                 className="text-sm font-medium underline underline-offset-4 hover:text-ink/70"
               >
-                LinkedIn ↗
+                LinkedIn ↗︎
               </a>
             </div>
           </Reveal>

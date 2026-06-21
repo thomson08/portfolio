@@ -133,7 +133,7 @@ export default async function CaseStudy({
               {next.name}
             </p>
           </div>
-          <span className="text-coral">↗</span>
+          <span className="text-coral">↗︎</span>
         </div>
       </a>
 

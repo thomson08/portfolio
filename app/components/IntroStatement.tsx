@@ -44,7 +44,7 @@ export default function IntroStatement() {
             href="#work"
             className="mt-10 inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm transition-colors duration-300 hover:border-coral hover:text-coral"
           >
-            See my work ↗
+            See my work ↗︎
           </a>
         </Reveal>
       </div>

@@ -91,7 +91,7 @@ export default function ContactForm() {
           disabled={status === "loading"}
           className="rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-paper transition-transform duration-300 hover:-translate-y-0.5 disabled:opacity-60"
         >
-          {status === "loading" ? "Sending…" : "Send message ↗"}
+          {status === "loading" ? "Sending…" : "Send message ↗︎"}
         </button>
         {status === "error" && (
           <p className="text-sm text-ink/80">

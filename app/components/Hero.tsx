@@ -76,7 +76,7 @@ export default function Hero() {
             href="#contact"
             className="w-full rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper"
           >
-            Let&apos;s talk ↗
+            Let&apos;s talk ↗︎
           </a>
           <div className="flex w-full gap-3">
             {profile.socials.map((s) => (
@@ -85,7 +85,7 @@ export default function Hero() {
                 href={s.href}
                 className="flex flex-1 items-center justify-center gap-2 rounded-full border border-ink/15 px-4 py-3 text-sm"
               >
-                {s.label} <span aria-hidden>↗</span>
+                {s.label} <span aria-hidden>↗︎</span>
               </a>
             ))}
           </div>
@@ -157,7 +157,7 @@ export default function Hero() {
             href="#contact"
             className="mt-5 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-transform duration-300 hover:-translate-y-0.5"
           >
-            Let&apos;s talk ↗
+            Let&apos;s talk ↗︎
           </a>
         </motion.div>
 
@@ -174,7 +174,7 @@ export default function Hero() {
               href={s.href}
               className="flex items-center justify-between gap-6 rounded-full border border-ink/15 bg-white/70 px-5 py-3 text-sm backdrop-blur transition-colors duration-300 hover:border-coral hover:text-coral"
             >
-              {s.label} <span aria-hidden>↗</span>
+              {s.label} <span aria-hidden>↗︎</span>
             </a>
           ))}
         </motion.div>
