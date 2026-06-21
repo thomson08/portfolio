@@ -149,17 +149,40 @@ function Section({ p, index }: { p: Project; index: number }) {
               ))}
             </div>
           </Reveal>
-          {p.liveUrl && (
+          {(p.liveUrl || p.caseStudy) && (
             <Reveal delay={0.25}>
-              <a
-                href={p.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-transform duration-300 hover:-translate-y-0.5"
-                style={{ backgroundColor: p.accent, color: "#0e0e0f" }}
-              >
-                Visit live site ↗
-              </a>
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                {p.caseStudy && (
+                  <a
+                    href={`/work/${p.slug}`}
+                    className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-transform duration-300 hover:-translate-y-0.5"
+                    style={{ backgroundColor: p.accent, color: "#0e0e0f" }}
+                  >
+                    See full case study →
+                  </a>
+                )}
+                {p.liveUrl && (
+                  <a
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-transform duration-300 hover:-translate-y-0.5 ${
+                      p.caseStudy
+                        ? dark
+                          ? "border border-white/25 text-paper hover:border-white/50"
+                          : "border border-ink/20 text-ink hover:border-ink/40"
+                        : ""
+                    }`}
+                    style={
+                      p.caseStudy
+                        ? undefined
+                        : { backgroundColor: p.accent, color: "#0e0e0f" }
+                    }
+                  >
+                    Visit live site ↗
+                  </a>
+                )}
+              </div>
             </Reveal>
           )}
           {p.stack && (

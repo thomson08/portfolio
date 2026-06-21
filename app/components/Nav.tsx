@@ -9,7 +9,10 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Nav() {
+// `subpage` = rendered on a /work/<slug> page rather than the homepage.
+// On subpages, anchor links point back to the homepage (/#work) and the bar
+// renders in white over the colored hero until the user scrolls.
+export default function Nav({ subpage = false }: { subpage?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -28,6 +31,10 @@ export default function Nav() {
     };
   }, [open]);
 
+  const base = subpage ? "/" : "";
+  // White treatment only over the colored hero (subpage, at the top, menu closed)
+  const dark = subpage && !scrolled && !open;
+
   return (
     <>
     <header
@@ -36,15 +43,24 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
-        <a href="#top" className="text-sm font-semibold tracking-tight">
+        <a
+          href={subpage ? "/" : "#top"}
+          className={`text-sm font-semibold tracking-tight ${
+            dark ? "text-white" : ""
+          }`}
+        >
           © Thomas Ninh
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-8 text-sm text-ink-soft md:flex">
+        <ul
+          className={`hidden items-center gap-8 text-sm md:flex ${
+            dark ? "text-white/90" : "text-ink-soft"
+          }`}
+        >
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="link-coral">
+              <a href={`${base}${l.href}`} className="link-coral">
                 {l.label}
               </a>
             </li>
@@ -52,7 +68,7 @@ export default function Nav() {
         </ul>
 
         <a
-          href="#contact"
+          href={`${base}#contact`}
           className="hidden text-sm font-medium text-coral link-coral md:inline"
         >
           Let&apos;s talk ↗
@@ -67,19 +83,19 @@ export default function Nav() {
           className="relative z-50 flex h-6 w-7 flex-col items-end justify-center gap-[5px] md:hidden"
         >
           <span
-            className={`h-[2px] bg-ink transition-all duration-300 ${
-              open ? "w-6 translate-y-[7px] rotate-45" : "w-7"
-            }`}
+            className={`h-[2px] transition-all duration-300 ${
+              dark ? "bg-white" : "bg-ink"
+            } ${open ? "w-6 translate-y-[7px] rotate-45" : "w-7"}`}
           />
           <span
-            className={`h-[2px] w-5 bg-ink transition-all duration-300 ${
-              open ? "opacity-0" : "opacity-100"
-            }`}
+            className={`h-[2px] w-5 transition-all duration-300 ${
+              dark ? "bg-white" : "bg-ink"
+            } ${open ? "opacity-0" : "opacity-100"}`}
           />
           <span
-            className={`h-[2px] bg-ink transition-all duration-300 ${
-              open ? "w-6 -translate-y-[7px] -rotate-45" : "w-7"
-            }`}
+            className={`h-[2px] transition-all duration-300 ${
+              dark ? "bg-white" : "bg-ink"
+            } ${open ? "w-6 -translate-y-[7px] -rotate-45" : "w-7"}`}
           />
         </button>
       </nav>
@@ -97,7 +113,7 @@ export default function Nav() {
           {links.map((l, i) => (
             <li key={l.href}>
               <a
-                href={l.href}
+                href={`${base}${l.href}`}
                 onClick={() => setOpen(false)}
                 className="block py-2 text-4xl font-bold tracking-tight"
                 style={{ transitionDelay: `${i * 40}ms` }}
@@ -108,7 +124,7 @@ export default function Nav() {
           ))}
         </ul>
         <a
-          href="#contact"
+          href={`${base}#contact`}
           onClick={() => setOpen(false)}
           className="mt-10 inline-flex w-fit items-center gap-2 rounded-full bg-ink px-7 py-4 text-base font-medium text-paper"
         >

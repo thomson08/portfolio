@@ -6,25 +6,61 @@ export function Phone({
   alt,
   className = "",
   dark = false,
+  fit = "cover",
+  hug = false,
 }: {
   src?: string;
   alt?: string;
   className?: string;
   dark?: boolean;
+  // "cover" crops to fill (default); "contain" shows the whole screen
+  // (no cropped CTAs) — the thin side margin reads as bezel.
+  fit?: "cover" | "contain";
+  // hug: frame wraps a raw screenshot at its NATURAL aspect ratio — no
+  // fixed aspect, so no cropped CTAs and no letterbox bars. Use for
+  // case-study screens (which are already cropped to raw, frameless).
+  hug?: boolean;
 }) {
+  const contain = fit === "contain" && !!src;
+
+  if (hug && src) {
+    return (
+      <div
+        className={`relative rounded-[1.55rem] bg-[#0a0a0c] p-[3px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)] ${
+          dark ? "ring-1 ring-white/10" : "ring-1 ring-black/5"
+        } ${className}`}
+      >
+        <div className="overflow-hidden rounded-[1.4rem]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={src} alt={alt ?? ""} className="block h-auto w-full" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={`relative aspect-[9/19.3] w-full rounded-[1.55rem] bg-[#0a0a0c] p-[3px] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)] ${
         dark ? "ring-1 ring-white/10" : "ring-1 ring-black/5"
       } ${className}`}
     >
-      <div className="relative h-full w-full overflow-hidden rounded-[1.4rem] bg-paper-dim">
+      <div
+        className={`relative h-full w-full overflow-hidden rounded-[1.4rem] ${
+          contain ? "bg-[#0a0a0c]" : "bg-paper-dim"
+        }`}
+      >
         {/* dynamic island — placeholders only (real screenshots render their own top UI) */}
         {!src && (
           <div className="absolute left-1/2 top-[6px] z-10 h-[13px] w-[32%] -translate-x-1/2 rounded-full bg-black" />
         )}
         {src ? (
-          <Image src={src} alt={alt ?? ""} fill className="object-cover" sizes="240px" />
+          <Image
+            src={src}
+            alt={alt ?? ""}
+            fill
+            className={contain ? "object-contain" : "object-cover"}
+            sizes="240px"
+          />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-black/[0.04] to-black/[0.12] text-[10px] uppercase tracking-[0.2em] text-ink/30">
             screen
